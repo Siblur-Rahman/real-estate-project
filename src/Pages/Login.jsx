@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 
 const Login = () => {
-
+            
             const {signInUser, signInWithGoogle} = useContext(AuthContext)
             const navigate = useNavigate();
 

@@ -5,7 +5,7 @@ import Estate from "./Estate";
 const Estates = () => {
     const [estates, setEstates] = useState([])
     useEffect(() =>{
-        fetch('../../public/data.json')
+        fetch('data.json')
         .then(res => res.json())
         .then(data =>setEstates(data))
     }, [])

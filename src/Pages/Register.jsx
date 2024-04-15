@@ -1,29 +1,29 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 
 const Register = () => {
 
-const {createUser} = useContext(AuthContext)
+const {createUser, updateUserProfile} = useContext(AuthContext);
+const navigate = useNavigate();
 
     const handleRegister = e =>{
         e.preventDefault();
         const name =e.target.name.value
         const email = e.target.email.value
         const password = e.target.password.value
-        console.log(email, password, name)
+        const image = e.target.image.value
         
         // create user in firebase
 
         createUser(email, password)
-        .then(result =>{
-            console.log(result.User)
+        .then(()=>{
+            updateUserProfile(name, image);
+            navigate("/");
         })
         .catch(error =>{
             console.log(error)
         })
-
-        console.log()
     }
     return (
         <div className="hero">
@@ -31,19 +31,25 @@ const {createUser} = useContext(AuthContext)
                 <div className="text-center">
                 <h1 className="text-5xl font-bold">Register now!</h1>
                 </div>
-                <div className="card shrink-0 w-full max-w-sm shadow-2xl text-white">
+                <div className="card shrink-0 w-full max-w-sm shadow-2xl">
                 <form className="card-body" onSubmit={handleRegister}>
-                <div className="form-control">
-                    <label className="label">
-                        <span className="">Name</span>
-                    </label>
-                    <input type="text" name="name" placeholder="Your Name" className="input input-bordered" required />
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="">Name</span>
+                        </label>
+                        <input type="text" name="name" placeholder="Your Name" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
-                    <label className="label">
-                        <span className="">Email</span>
-                    </label>
-                    <input type="email" name="email" placeholder="email" className="input input-bordered" required />
+                        <label className="label">
+                            <span className="">Image URL</span>
+                        </label>
+                        <input type="text" name="image" placeholder="Image URL" className="input input-bordered" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="">Email</span>
+                        </label>
+                        <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                     <label className="label">

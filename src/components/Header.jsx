@@ -43,16 +43,29 @@ const Header = () => {
                     {navLink}
                     </ul>
                 </div>
-                <div className="navbar-end">
+                <div className="dropdown dropdown-end flex">
                     
                     {
                         user ? <>
-                        <span className="">{user.email}</span>
+                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                            <div className="w-10 rounded-full">
+                            <img alt="" src={user?.photoURL || "https://i.ibb.co/SXC0ynb/developer-siblu.jpg"} />
+                            </div>
+                        </div>
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                            <li>
+                            <a className="justify-between">
+                               {
+                                user.displayName
+                               }
+                            </a>
+                            </li>
+                        </ul>
                         <a onClick={handleLogOut} className="btn btn-sm">Sign out</a>
                         </>
                         : <Link to="/login">
 
-                            <a /*onClick={handleLogOut}*/ className="btn-sm">Login</a>
+                            <a className="btn-sm">Login</a>
 
                         </Link>
                     }
