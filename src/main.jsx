@@ -40,7 +40,7 @@ const router = createBrowserRouter([{
     {
       path:'/EstateDetails/:id',
       element:<EstateDetails></EstateDetails>,
-      loader:() => fetch('/public/data.json')
+      loader:() => fetch('/data.json')
     }
   ],
   errorElement:<ErrorPage/>
