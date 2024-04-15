@@ -1,0 +1,49 @@
+[{
+    "id": 1,
+    "image":"https://i.ibb.co/sWQy5z2/Single-family-homes.jpg",
+    "estate_title": "Cozy Cottage",
+    "segment_name": "Residential",
+    "description": "Charming single-family home with a spacious backyard.",
+    "price": "$2500000",
+    "status": "sale",
+    "area": "1500 sqr ft",
+    "location": "123 Main Street",
+    "facilities": ["Garage", "Garden", "Fireplace"]
+  },
+  {
+    "id": 2,
+    "image":"https://i.ibb.co/C8YwgSL/townhouses.jpg",
+    "estate_title": "Modern Townhouse",
+    "segment_name": "Residential",
+    "description": "Contemporary townhouse with sleek design and urban appeal.",
+    "price": "$550000",
+    "status": "rent",
+    "area": "2000 sqr ft",
+    "location": "123 Main Street",
+    "facilities": ["Garage", "Roof Deck", "Fitness Center"]
+  },
+  {
+    "id": 3,
+    "image":"https://i.ibb.co/18SCsXy/apartments.jpg",
+    "estate_title": "Luxury Apartment",
+    "segment_name": "Residential",
+    "description": "Spacious and luxurious apartment in a prime location.",
+    "price": "$3000",
+    "status": "sale",
+    "area": "1200 sqr ft",
+    "location": "456 Elm Avenue",
+    "facilities": ["Swimming Pool", "Gym", "24/7 Security"]
+  },
+  {
+    "id": 4,
+    "image":"https://i.ibb.co/jz1ZSQM/student.jpg",
+    "estate_title": "Student Dormitory",
+    "segment_name": "Student Housing",
+    "description": "Affordable and convenient housing for students.",
+    "price": "$500",
+    "status": "rent",
+    "area": "200 sqr ft",
+    "location": "789 Oak Street",
+    "facilities": ["Shared Kitchen", "Study Area", "Laundry Facilities"]
+  }
+]
