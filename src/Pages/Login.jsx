@@ -4,7 +4,7 @@ import { AuthContext } from "../providers/AuthProvider";
 
 const Login = () => {
             
-            const {signInUser, signInWithGoogle} = useContext(AuthContext)
+            const {signInUser, signInWithGoogle, signInWithGithub} = useContext(AuthContext)
             const navigate = useNavigate();
 
             const handleLogin = e =>{
@@ -26,6 +26,17 @@ const Login = () => {
 
             const handleGoogleSignIn = () =>{
                 signInWithGoogle()
+                navigate("/")
+                .then(result =>{
+                    console.log(result.user)
+                })
+                .catch(error =>{
+                    console.log(error)
+                })
+            }
+            const handleGithubSignIn = () =>{
+                signInWithGithub()
+                navigate("/")
                 .then(result =>{
                     console.log(result.user)
                 })
@@ -39,19 +50,19 @@ const Login = () => {
                 <div className="text-center">
                 <h1 className="text-5xl font-bold">Login now!</h1>
                 </div>
-                <div className="card shrink-0 w-full max-w-sm shadow-2xl text-white">
+                <div className="card shrink-0 w-full max-w-sm shadow-2x">
                 <form onSubmit={handleLogin}>
                     <div className="form-control">
                     <label className="label">
                         <span className="">Email</span>
                     </label>
-                    <input type="email" name="email" placeholder="email" className="input input-bordered bg-slate-800" required />
+                    <input type="email" name="email" placeholder="email" className="input input-bordered " required />
                     </div>
                     <div className="form-control">
                     <label className="label">
                         <span className="">Password</span>
                     </label>
-                    <input type="password" name="password" placeholder="password" className="input input-bordered bg-slate-800" required />
+                    <input type="password" name="password" placeholder="password" className="input input-bordered " required />
                     <label className="label">
                         <a href="#" className="link link-hover">Forgot password?</a>
                     </label>
@@ -63,7 +74,11 @@ const Login = () => {
                 <p>New Here? Please
                     <Link to="/register"><button className="btn btn-link">REGISTER</button></Link>
                 </p>
-                <p><button onClick={handleGoogleSignIn} className="btn btn-link">GOOGLE</button></p>
+                <div className="divider">Countinue With</div>
+                <div className="flex justify-between">
+                    <p><button onClick={handleGoogleSignIn} className="btn">GOOGLE</button></p>
+                    <p><button onClick={handleGithubSignIn} className="btn">GITHUB</button></p>
+                </div>
                 </div>
             </div>
         </div>

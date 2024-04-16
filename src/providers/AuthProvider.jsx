@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from "react";
 import auth from '../firebase/firebase.config';
-import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+import { GoogleAuthProvider, GithubAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+// import { GithubAuthProvider } from 'firebase/auth';
 
 export const AuthContext = createContext(null);
 
 const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider();
 
 const AuthProvider = ({children}) => {
 
@@ -32,7 +34,11 @@ const AuthProvider = ({children}) => {
 
    const signInWithGoogle = () =>{
     setLoading(true)
-    signInWithPopup(auth, googleProvider)
+    return signInWithPopup(auth, googleProvider)
+   }
+   const signInWithGithub = () =>{
+    setLoading(true);
+    return signInWithPopup(auth, githubProvider)
    }
 
    const logOut = () =>{
@@ -44,7 +50,6 @@ const AuthProvider = ({children}) => {
     const unSubscribe = onAuthStateChanged(auth, currentUser=>{
         setUser(currentUser);
         setLoading(false);
-        console.log('observing current user inside of AuthProvider', currentUser)
     });
 
     return ()=>{
@@ -59,6 +64,7 @@ const AuthProvider = ({children}) => {
         signInUser,
         logOut,
         signInWithGoogle,
+        signInWithGithub,
         updateUserProfile,  
     }
     return (

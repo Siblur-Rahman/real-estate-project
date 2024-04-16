@@ -4,7 +4,7 @@ import { AuthContext } from "../providers/AuthProvider";
 
 const Register = () => {
 
-const {createUser, updateUserProfile} = useContext(AuthContext);
+const {createUser, updateUserProfile, logOut} = useContext(AuthContext);
 const navigate = useNavigate();
 
     const handleRegister = e =>{
@@ -19,7 +19,8 @@ const navigate = useNavigate();
         createUser(email, password)
         .then(()=>{
             updateUserProfile(name, image);
-            navigate("/");
+            logOut();
+            navigate("/login");
         })
         .catch(error =>{
             console.log(error)

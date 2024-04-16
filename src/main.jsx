@@ -9,9 +9,10 @@ import Register from './Pages/Register';
 import AuthProvider from './providers/AuthProvider'
 import PrivateRoute from './routes/PrivateRoute'
 import Orders from './Pages/Orders'
-import Profile from './Pages/Profile'
 import EstateDetails from './components/EstateDetails'
 import ErrorPage from './Pages/ErrorPage'
+import UpdateProfile from './Pages/UpdateProfile'
+import UserProfile from './Pages/UserProfile'
 
 const router = createBrowserRouter([{
   path:'/',
@@ -34,8 +35,12 @@ const router = createBrowserRouter([{
       element:<PrivateRoute><Orders></Orders></PrivateRoute>,
     },
     {
-      path:'/profile',
-      element:<PrivateRoute><Profile></Profile></PrivateRoute>,
+      path:'/UserProfile',
+      element:<PrivateRoute><UserProfile></UserProfile></PrivateRoute>,
+    },
+    {
+      path:'/UpdateProfile',
+      element:<PrivateRoute><UpdateProfile></UpdateProfile></PrivateRoute>,
     },
     {
       path:'/EstateDetails/:id',
