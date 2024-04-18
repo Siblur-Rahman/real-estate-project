@@ -3,14 +3,23 @@ Live link: https://your-home-dff73.web.app
 Repository link: https://github.com/programming-hero-web-course-4/b9a9-real-estate-Siblur-Rahman.git
 
 using: react-router;
+
 using: react toast;
+
 using: firebase Authentication;
+
 add: JSON data;
+
 navigate;
+
 Daisy UI;
+
 tailwind CSS;
+
 Swiper slider;
+
 Dynamic Title:
+
 host the image on imgbb;
 
 
