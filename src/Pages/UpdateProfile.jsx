@@ -28,12 +28,6 @@ const UpdateProfile = () => {
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="">Email</span>
-                        </label>
-                        <input type="email" name="email" placeholder={user.email} className="input input-bordered text-2xl text-black" disabled />
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
                             <span className="">Image URL</span>
                         </label>
                         <input type="text" name="image" placeholder="Image URL" className="input input-bordered" />
