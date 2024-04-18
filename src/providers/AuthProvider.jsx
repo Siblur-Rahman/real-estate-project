@@ -29,16 +29,18 @@ const AuthProvider = ({children}) => {
    
    const signInUser = (email, password) =>{
     setLoading(true);
-    return signInWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPassword(auth, email, password)
+    .then(result=>console.log(result.user))
    }
 
    const signInWithGoogle = () =>{
     setLoading(true)
-    return signInWithPopup(auth, googleProvider)
+    signInWithPopup(auth, googleProvider)
    }
    const signInWithGithub = () =>{
     setLoading(true);
-    return signInWithPopup(auth, githubProvider)
+    signInWithPopup(auth, githubProvider)
+    .then(result=>console.log(result.user))
    }
 
    const logOut = () =>{

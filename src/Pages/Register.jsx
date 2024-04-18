@@ -2,10 +2,11 @@ import { useContext } from "react";
 import { Link, useNavigate} from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
 
-const {user, createUser, updateUserProfile, logOut} = useContext(AuthContext);
+const {createUser, updateUserProfile, logOut} = useContext(AuthContext);
 const navigate = useNavigate();
 
     const handleRegister = e =>{
@@ -31,6 +32,9 @@ const navigate = useNavigate();
     }
     return (
         <div className="hero">
+            <Helmet>
+                <title>Register Page</title>
+            </Helmet>
             <div className="hero-content flex-col">
                 <div className="text-center">
                 <h1 className="text-5xl font-bold">Register now!</h1>

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import {NavLink } from "react-router-dom";
 import { AuthContext } from '../providers/AuthProvider';
+import { toast } from "react-toastify";
 // import '../css/style.css'
 
 const Header = () => {
@@ -9,7 +10,7 @@ const Header = () => {
 
         const handleLogOut = () =>{
             logOut()
-            .then(() => console.log('user logged out successfully'))
+            .then(() => toast('user logged out successfully'))
             .catch(error => console.error(error))    
         }
 
