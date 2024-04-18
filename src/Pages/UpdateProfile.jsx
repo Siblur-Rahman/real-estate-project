@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const UpdateProfile = () => {
     const { user, updateUserProfile} = useContext(AuthContext);
@@ -10,7 +11,11 @@ const UpdateProfile = () => {
         updateUserProfile(name || user.name, image || user.photoURL);
     }
     return (
+        
         <div className="hero">
+            <Helmet>
+                <title>UpDate Profile</title>
+            </Helmet>
             <div className="hero-content flex-col">
                 <div className="text-center">
                         
