@@ -37,7 +37,7 @@ const router = createBrowserRouter([{
       path:'/EstateDetails/:id',
       element:<EstateDetails></EstateDetails>,
       loader:() => fetch('data.json')
-    }
+    },
   ],
   errorElement:<ErrorPage/>
 }])
