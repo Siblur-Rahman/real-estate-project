@@ -4,7 +4,7 @@ import { AuthContext } from "../providers/AuthProvider";
 
 const Register = () => {
 
-const {createUser, updateUserProfile, logOut} = useContext(AuthContext);
+const {user, createUser, updateUserProfile, logOut} = useContext(AuthContext);
 const navigate = useNavigate();
 
     const handleRegister = e =>{

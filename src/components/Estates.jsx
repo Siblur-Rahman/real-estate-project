@@ -9,7 +9,6 @@ const Estates = () => {
         .then(res => res.json())
         .then(data =>setEstates(data))
     }, [])
-    console.log(estates)
     return (
         <div className="lg:grid grid-cols-2 gap-4">
             {

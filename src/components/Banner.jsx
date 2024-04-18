@@ -1,30 +1,25 @@
+import { useEffect, useState } from "react";
+import Slider from "./Slider";
 
 const Banner = () => {
-    return (
-        <div className="carousel rounded-box">
-  <div className="carousel-item">
-    <img src="https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg" alt="Burger" />
-  </div> 
-  <div className="carousel-item">
-    <img src="https://daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg" alt="Burger" />
-  </div> 
-  <div className="carousel-item">
-    <img src="https://daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.jpg" alt="Burger" />
-  </div> 
-  <div className="carousel-item">
-    <img src="https://daisyui.com/images/stock/photo-1494253109108-2e30c049369b.jpg" alt="Burger" />
-  </div> 
-  <div className="carousel-item">
-    <img src="https://daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.jpg" alt="Burger" />
-  </div> 
-  <div className="carousel-item">
-    <img src="https://daisyui.com/images/stock/photo-1559181567-c3190ca9959b.jpg" alt="Burger" />
-  </div> 
-  <div className="carousel-item">
-    <img src="https://daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.jpg" alt="Burger" />
-  </div>
-</div>
-    );
+  const [estates, setEstates] = useState([])
+  useEffect(() =>{
+      fetch('data.json')
+      .then(res => res.json())
+      .then(data =>setEstates(data))
+  }, [])
+  return (
+         <div className="flex justify-center h-96">
+              <div className="w-[500px] carousel rounded-box">
+                <div className="carousel carousel-center max-w-md p-4 space-x-4 bg-neutral rounded-box">
+                                        {
+                                            estates.map(estate => <Slider key={estate.id} estate={estate}></Slider>)
+                                        }
+                    </div>
+                </div>
+           </div>
+        
+  );
 };
 
 export default Banner;

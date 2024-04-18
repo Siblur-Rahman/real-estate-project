@@ -18,10 +18,8 @@ const Header = () => {
             <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/login">Login</NavLink></li>
             <li><NavLink to="/register">Register</NavLink></li>
-            <li><NavLink to="/orders">Orders</NavLink></li>
             {user && <>
                 <li><NavLink to="/UpdateProfile">Update Profile</NavLink></li>
-                <li><NavLink to="/UserProfile">User Profile</NavLink></li>
             </>}
             </>
     return (
@@ -43,7 +41,7 @@ const Header = () => {
                     {navLink}
                     </ul>
                 </div>
-                <div className="dropdown dropdown-end flex">
+                <div className="dropdown dropdown-end">
                     
                     {
                         user ? <>
@@ -52,7 +50,7 @@ const Header = () => {
                             <img alt="" src={user?.photoURL || "https://i.ibb.co/SXC0ynb/developer-siblu.jpg"} />
                             </div>
                         </div>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-6 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                             <li>
                             <a className="justify-between">
                                {
@@ -60,8 +58,8 @@ const Header = () => {
                                }
                             </a>
                             </li>
+                        <li><a onClick={handleLogOut} className="btn btn-sm">Sign out</a></li>
                         </ul>
-                        <a onClick={handleLogOut} className="btn btn-sm">Sign out</a>
                         </>
                         : <Link to="/login">
 
