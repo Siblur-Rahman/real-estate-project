@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
@@ -15,13 +16,15 @@ const Login = () => {
                 const password =e.target.password.value
                 console.log(email, password)
                 signInUser(email, password)
-                navigate("/")
                 .then(result =>{
+                    navigate("/")
                     console.log(result.user)
                     e.target.reset();
                 })
                 .catch(error=>{
-                    console.log(error)
+                    console.log(error);
+                    toast('Your email/password is invalid')
+
                 })
             }
 

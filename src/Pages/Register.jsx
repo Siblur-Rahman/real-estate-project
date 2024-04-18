@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, useNavigate} from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import { toast } from "react-toastify";
 
 const Register = () => {
 
@@ -19,11 +20,13 @@ const navigate = useNavigate();
         createUser(email, password)
         .then(()=>{
             updateUserProfile(name, image);
+            toast('Registration Successful, Please Login')
             logOut();
             navigate("/login");
         })
         .catch(error =>{
-            console.log(error)
+            console.log(error);
+            toast('You are allready registered wtih this email ')
         })
     }
     return (

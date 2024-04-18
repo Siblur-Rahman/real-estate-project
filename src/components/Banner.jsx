@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
-import Slider from "./Slider";
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 const Banner = () => {
   const [estates, setEstates] = useState([])
@@ -9,15 +14,20 @@ const Banner = () => {
       .then(data =>setEstates(data))
   }, [])
   return (
-         <div className="flex justify-center h-96">
-              <div className="w-[500px] carousel rounded-box">
-                <div className="carousel carousel-center max-w-md p-4 space-x-4 bg-neutral rounded-box">
+    <Swiper
+    modules={[Navigation, Pagination, Scrollbar, A11y]}
+    spaceBetween={50}
+    slidesPerView={1}
+    navigation
+    pagination={{ clickable: true }}
+    scrollbar={{ draggable: true }}
+    onSlideChange={() => console.log('slide change')}
+    onSwiper={(swiper) => console.log(swiper)}
+  >
                                         {
-                                            estates.map(estate => <Slider key={estate.id} estate={estate}></Slider>)
+                                            estates.map(estate => <SwiperSlide key={estate.id}><img src={estate.image} className="rounded-box w-full" /></SwiperSlide>)
                                         }
-                    </div>
-                </div>
-           </div>
+  </Swiper>
         
   );
 };
